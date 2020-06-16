@@ -41,7 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor.Aggregators.T
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataProcessor.Database.SqlServer", "DataProcessor.Database.SqlServer\DataProcessor.Database.SqlServer.sqlproj", "{4EDA8E2E-B89F-48C2-8B7E-CAA0AB01FB76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessor.Repositories.SqlServer", "DataProcessor.Repositories.SqlServer\DataProcessor.Repositories.SqlServer.csproj", "{74F11C79-AEFA-4E33-ADD0-3576EFC663D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor.Repositories.SqlServer", "DataProcessor.Repositories.SqlServer\DataProcessor.Repositories.SqlServer.csproj", "{74F11C79-AEFA-4E33-ADD0-3576EFC663D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessor.Repositories.SqlServer.Console", "DataProcessor.Repositories.SqlServer.Console\DataProcessor.Repositories.SqlServer.Console.csproj", "{482DA4B5-DDCB-4134-9D0F-9E8C105EAE25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,10 @@ Global
 		{74F11C79-AEFA-4E33-ADD0-3576EFC663D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74F11C79-AEFA-4E33-ADD0-3576EFC663D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F11C79-AEFA-4E33-ADD0-3576EFC663D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{482DA4B5-DDCB-4134-9D0F-9E8C105EAE25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{482DA4B5-DDCB-4134-9D0F-9E8C105EAE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{482DA4B5-DDCB-4134-9D0F-9E8C105EAE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{482DA4B5-DDCB-4134-9D0F-9E8C105EAE25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
