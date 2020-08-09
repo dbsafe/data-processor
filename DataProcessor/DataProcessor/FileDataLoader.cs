@@ -61,7 +61,7 @@ namespace DataProcessor
             return true;
         }
 
-        private void InsertTrailer(ParsedData parsedData, long fileID)
+        private void InsertTrailer(ParsedData parsedData, Guid fileID)
         {
             if (parsedData.Trailer != null)
             {
@@ -69,7 +69,7 @@ namespace DataProcessor
             }
         }
 
-        private void InsertHeader(ParsedData parsedData, long fileID)
+        private void InsertHeader(ParsedData parsedData, Guid fileID)
         {
             if (parsedData.Header != null)
             {
@@ -77,7 +77,7 @@ namespace DataProcessor
             }
         }
 
-        private InsertRowRequest CreateInsertRowRequest(Row row, long fileID)
+        private InsertRowRequest CreateInsertRowRequest(Row row, Guid fileID)
         {
             return new InsertRowRequest
             {
@@ -89,7 +89,7 @@ namespace DataProcessor
             };
         }
 
-        private void InsertData(ParsedData parsedData, long fileID)
+        private void InsertData(ParsedData parsedData, Guid fileID)
         {
             foreach(var dataRow in parsedData.DataRows)
             {
@@ -97,7 +97,7 @@ namespace DataProcessor
             }
         }
 
-        private long InitializeFile(string dataFilePath)
+        private Guid InitializeFile(string dataFilePath)
         {
             var initializeFileRequest = new InitializeFileRequest
             {

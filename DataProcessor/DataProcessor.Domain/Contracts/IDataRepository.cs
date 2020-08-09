@@ -1,4 +1,5 @@
 ﻿using DataProcessor.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace DataProcessor.Domain.Contracts
@@ -17,20 +18,20 @@ namespace DataProcessor.Domain.Contracts
 
     public class SetFileStatusWithFileLoadedCompletedRequest
     {
-        public long FileID { get; set; }
+        public Guid FileID { get; set; }
         public IList<string> Errors { get; set; }
         public ValidationResultType ValidationResult { get; set; }
     }
 
     public class SetFileStatusWithFileLoadErrorRequest
     {
-        public long FileID { get; set; }
+        public Guid FileID { get; set; }
         public string Error { get; set; }
     }
 
     public class InsertRowRequest
     {
-        public long FileID { get; set; }
+        public Guid FileID { get; set; }
         public ValidationResultType? ValidationResult { get; set; }
         public string Raw { get; set; }
         public string Decoded { get; set; }
@@ -39,7 +40,7 @@ namespace DataProcessor.Domain.Contracts
 
     public class InitializeFileResult
     {
-        public long FileID { get; set; }
+        public Guid FileID { get; set; }
     }
 
     public class InitializeFileRequest
