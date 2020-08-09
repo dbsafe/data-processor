@@ -18,20 +18,20 @@ namespace DataProcessor.Domain.Contracts
 
     public class SetFileStatusWithFileLoadedCompletedRequest
     {
-        public Guid FileID { get; set; }
+        public Guid FileId { get; set; }
         public IList<string> Errors { get; set; }
         public ValidationResultType ValidationResult { get; set; }
     }
 
     public class SetFileStatusWithFileLoadErrorRequest
     {
-        public Guid FileID { get; set; }
+        public Guid FileId { get; set; }
         public string Error { get; set; }
     }
 
     public class InsertRowRequest
     {
-        public Guid FileID { get; set; }
+        public Guid FileId { get; set; }
         public ValidationResultType? ValidationResult { get; set; }
         public string Raw { get; set; }
         public string Decoded { get; set; }
@@ -40,7 +40,7 @@ namespace DataProcessor.Domain.Contracts
 
     public class InitializeFileResult
     {
-        public Guid FileID { get; set; }
+        public Guid FileId { get; set; }
     }
 
     public class InitializeFileRequest

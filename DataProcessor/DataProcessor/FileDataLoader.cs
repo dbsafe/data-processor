@@ -27,7 +27,7 @@ namespace DataProcessor
 
         public bool Load(string dataFilePath, string fileSpecPath)
         {
-            var fileID = InitializeFile(dataFilePath);
+            var fileId = InitializeFile(dataFilePath);
 
             ParsedData parsedData;
             try
@@ -38,7 +38,7 @@ namespace DataProcessor
             {
                 var setFileStatusWithFileLoadErrorRequest = new SetFileStatusWithFileLoadErrorRequest
                 {
-                    FileID = fileID,
+                    FileId = fileId,
                     Error = $"Error Loading and Parsing file. {ex}"
                 };
 
@@ -46,13 +46,13 @@ namespace DataProcessor
                 return false;
             }
 
-            InsertHeader(parsedData, fileID);
-            InsertData(parsedData, fileID);
-            InsertTrailer(parsedData, fileID);
+            InsertHeader(parsedData, fileId);
+            InsertData(parsedData, fileId);
+            InsertTrailer(parsedData, fileId);
 
             var setFileStatusWithFileLoadedCompletedRequest = new SetFileStatusWithFileLoadedCompletedRequest
             {
-                FileID = fileID,
+                FileId = fileId,
                 Errors = parsedData.Errors,
                 ValidationResult = parsedData.ValidationResult
             };
@@ -61,27 +61,27 @@ namespace DataProcessor
             return true;
         }
 
-        private void InsertTrailer(ParsedData parsedData, Guid fileID)
+        private void InsertTrailer(ParsedData parsedData, Guid fileId)
         {
             if (parsedData.Trailer != null)
             {
-                _dataRepository.InsertTrailer(CreateInsertRowRequest(parsedData.Trailer, fileID));
+                _dataRepository.InsertTrailer(CreateInsertRowRequest(parsedData.Trailer, fileId));
             }
         }
 
-        private void InsertHeader(ParsedData parsedData, Guid fileID)
+        private void InsertHeader(ParsedData parsedData, Guid fileId)
         {
             if (parsedData.Header != null)
             {
-                _dataRepository.InsertHeader(CreateInsertRowRequest(parsedData.Header, fileID));
+                _dataRepository.InsertHeader(CreateInsertRowRequest(parsedData.Header, fileId));
             }
         }
 
-        private InsertRowRequest CreateInsertRowRequest(Row row, Guid fileID)
+        private InsertRowRequest CreateInsertRowRequest(Row row, Guid fileId)
         {
             return new InsertRowRequest
             {
-                FileID = fileID,
+                FileId = fileId,
                 ValidationResult = row.ValidationResult,
                 Raw = row.Raw,
                 Decoded = row.Json,
@@ -89,11 +89,11 @@ namespace DataProcessor
             };
         }
 
-        private void InsertData(ParsedData parsedData, Guid fileID)
+        private void InsertData(ParsedData parsedData, Guid fileId)
         {
             foreach(var dataRow in parsedData.DataRows)
             {
-                _dataRepository.InsertData(CreateInsertRowRequest(dataRow, fileID));
+                _dataRepository.InsertData(CreateInsertRowRequest(dataRow, fileId));
             }
         }
 
@@ -105,7 +105,7 @@ namespace DataProcessor
             };
 
             var initializeFileResult = _dataRepository.InitializeFile(initializeFileRequest);
-            return initializeFileResult.FileID;
+            return initializeFileResult.FileId;
         }
 
         private ParsedData ParseFileData(string dataFilePath, string fileSpecPath)
