@@ -1,0 +1,29 @@
+{
+    "Table": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "FileId",
+                "AttributeType": "S"
+            }
+        ],
+        "TableName": "DP_File",
+        "KeySchema": [
+            {
+                "AttributeName": "FileId",
+                "KeyType": "HASH"
+            }
+        ],
+        "TableStatus": "ACTIVE",
+        "CreationDateTime": 1597025671.877,
+        "ProvisionedThroughput": {
+            "LastDecreaseDateTime": 1597025919.937,
+            "NumberOfDecreasesToday": 1,
+            "ReadCapacityUnits": 1,
+            "WriteCapacityUnits": 1
+        },
+        "TableSizeBytes": 141,
+        "ItemCount": 3,
+        "TableArn": "arn:aws:dynamodb:us-east-1:633018358939:table/DP_File",
+        "TableId": "dc7e4a47-0e20-4ef9-9916-7109f5499e5d"
+    }
+}

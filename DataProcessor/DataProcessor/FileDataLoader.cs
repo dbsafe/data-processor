@@ -5,6 +5,7 @@ using DataProcessor.InputDefinitionFile;
 using DataProcessor.ProcessorDefinition;
 using DataProcessor.ProcessorDefinition.Models;
 using System;
+using System.Threading.Tasks;
 
 namespace DataProcessor
 {
@@ -25,9 +26,9 @@ namespace DataProcessor
             _dataRepository = dataRepository;
         }
 
-        public bool Load(string dataFilePath, string fileSpecPath)
+        public async Task<bool> Load(string dataFilePath, string fileSpecPath)
         {
-            var fileId = InitializeFile(dataFilePath);
+            var fileId = await InitializeFileAsync(dataFilePath);
 
             ParsedData parsedData;
             try
@@ -97,14 +98,14 @@ namespace DataProcessor
             }
         }
 
-        private Guid InitializeFile(string dataFilePath)
+        private async Task<Guid> InitializeFileAsync(string dataFilePath)
         {
             var initializeFileRequest = new InitializeFileRequest
             {
                 Path = dataFilePath
             };
 
-            var initializeFileResult = _dataRepository.InitializeFile(initializeFileRequest);
+            var initializeFileResult = await _dataRepository.InitializeFileAsync(initializeFileRequest);
             return initializeFileResult.FileId;
         }
 

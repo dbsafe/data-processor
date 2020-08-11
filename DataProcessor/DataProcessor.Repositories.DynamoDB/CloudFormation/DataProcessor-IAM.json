@@ -24,18 +24,64 @@
     "DataProcessorAdminKeys": {
       "Type": "AWS::IAM::AccessKey",
       "Properties": {
-        "UserName": { "Ref": "DataProcessorAdmin" }
+        "UserName": {
+          "Ref": "DataProcessorAdmin"
+        }
+      }
+    },
+
+    "DataProcessor": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "UserName": "DataProcessor",
+        "Policies": [
+          {
+            "PolicyName": "full-admin",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": "*",
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "DataProcessorKeys": {
+      "Type": "AWS::IAM::AccessKey",
+      "Properties": {
+        "UserName": { "Ref": "DataProcessor" }
       }
     }
   },
+
   "Outputs": {
     "DataProcessorAdminAccessKeyID": {
       "Description": "Data Processor - Admin User - Access Key ID",
-      "Value": { "Ref": "DataProcessorAdminKeys" }
+      "Value": {
+        "Ref": "DataProcessorAdminKeys"
+      }
     },
     "DataProcessorAdminSecretAccessKey": {
       "Description": "Data Processor - Admin User - Secret Access Key",
-      "Value": { "Fn::GetAtt": [ "DataProcessorAdminKeys", "SecretAccessKey" ] }
+      "Value": {
+        "Fn::GetAtt": [
+          "DataProcessorAdminKeys",
+          "SecretAccessKey"
+        ]
+      }
+    },
+    "DataProcessorAccessKeyID": {
+      "Description": "Data Processor - User - Access Key ID",
+      "Value": { "Ref": "DataProcessorKeys" }
+    },
+    "DataProcessorSecretAccessKey": {
+      "Description": "Data Processor - User - Secret Access Key",
+      "Value": { "Fn::GetAtt": [ "DataProcessorKeys", "SecretAccessKey" ] }
     }
   }
 }

@@ -41,6 +41,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor.Aggregators.T
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DataProcessor.Database.SqlServer", "DataProcessor.Database.SqlServer\DataProcessor.Database.SqlServer.sqlproj", "{4EDA8E2E-B89F-48C2-8B7E-CAA0AB01FB76}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessor.Repositories.DynamoDB", "DataProcessor.Repositories.DynamoDB\DataProcessor.Repositories.DynamoDB.csproj", "{BD2D0620-E869-4A17-B859-56D3204E1F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProcessor.Repositories.DynamoDB.Tests", "DataProcessor.Repositories.DynamoDB.Tests\DataProcessor.Repositories.DynamoDB.Tests.csproj", "{C7912239-D642-427E-B231-97B11F019635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +129,14 @@ Global
 		{4EDA8E2E-B89F-48C2-8B7E-CAA0AB01FB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EDA8E2E-B89F-48C2-8B7E-CAA0AB01FB76}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EDA8E2E-B89F-48C2-8B7E-CAA0AB01FB76}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BD2D0620-E869-4A17-B859-56D3204E1F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2D0620-E869-4A17-B859-56D3204E1F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2D0620-E869-4A17-B859-56D3204E1F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2D0620-E869-4A17-B859-56D3204E1F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7912239-D642-427E-B231-97B11F019635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7912239-D642-427E-B231-97B11F019635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7912239-D642-427E-B231-97B11F019635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7912239-D642-427E-B231-97B11F019635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

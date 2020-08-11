@@ -1,0 +1,26 @@
+{
+  "Resources": {
+    "table": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName": "DP_File",
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        },
+        "KeySchema": [
+          {
+            "AttributeName": "FileId",
+            "KeyType": "HASH"
+          }
+        ],
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "FileId",
+            "AttributeType": "S"
+          }
+        ]
+      }
+    }
+  }
+}

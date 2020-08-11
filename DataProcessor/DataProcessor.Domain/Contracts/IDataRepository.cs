@@ -1,12 +1,13 @@
 ﻿using DataProcessor.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DataProcessor.Domain.Contracts
 {
     public interface IDataRepository
     {
-        InitializeFileResult InitializeFile(InitializeFileRequest request);
+        Task<InitializeFileResult> InitializeFileAsync(InitializeFileRequest request);
 
         void SetFileStatusWithWileLoadError(SetFileStatusWithFileLoadErrorRequest request);
 
@@ -46,5 +47,14 @@ namespace DataProcessor.Domain.Contracts
     public class InitializeFileRequest
     {
         public string Path { get; set; }
+        public long SizeBytes { get; set; }
+        public FileStatusType Status { get; set; }
+        public DateTime DateTime { get; set; }
+    }
+
+    public enum FileStatusType
+    {
+        Importing,
+        Imported
     }
 }
