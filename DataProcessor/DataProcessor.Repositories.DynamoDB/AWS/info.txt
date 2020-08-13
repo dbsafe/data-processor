@@ -1,0 +1,26 @@
+﻿
+Create json file form a table
+>aws dynamodb describe-table --table-name DP_File --profile DataProcessor > Table_DP_File.json
+
+Docker image with DynamoDB
+https://hub.docker.com/r/amazon/dynamodb-local
+
+Docker - Get image
+>docker pull amazon/dynamodb-local
+
+Docker - Run image
+>docker run -p 8000:8000 amazon/dynamodb-local
+(command does not return)
+
+docker run -d -p 8000:8000 amazon/dynamodb-local
+
+Using AWS CLI connecting to the local container
+>aws dynamodb list-tables --endpoint-url http://localhost:8000
+
+>aws dynamodb create-table --generate-cli-skeleton
+
+>aws dynamodb create-table --cli-input-json file://Table_DP_File.json --endpoint-url http://localhost:8000
+
+>aws dynamodb list-tables --endpoint-url http://localhost:8000
+
+>aws dynamodb scan --table-name DP_File --endpoint-url http://localhost:8000

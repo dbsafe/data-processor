@@ -1,0 +1,19 @@
+{
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "FileId",
+      "AttributeType": "S"
+    }
+  ],
+  "TableName": "DP_File",
+  "KeySchema": [
+    {
+      "AttributeName": "FileId",
+      "KeyType": "HASH"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

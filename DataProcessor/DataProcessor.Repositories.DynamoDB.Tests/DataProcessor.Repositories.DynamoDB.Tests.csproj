@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\DataProcessor.Repositories.DynamoDB\AWS\Table_DP_File.json" Link="AWS\Table_DP_File.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Docker.DotNet" Version="3.125.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
@@ -15,6 +22,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataProcessor.Repositories.DynamoDB\DataProcessor.Repositories.DynamoDB.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AWS\" />
   </ItemGroup>
 
 </Project>

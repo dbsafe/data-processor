@@ -37,7 +37,7 @@ namespace DataProcessor.Repositories.DynamoDB
                 [FIELD_FILE_ID] = result.FileId.ToString(),
                 [FIELD_FILE_PATH] = request.Path,
                 [FIELD_FILE_DATETIME] = request.DateTime,
-                [FIELD_FILE_STATUS] = request.Status.ToString(),
+                [FIELD_FILE_STATUS] = FileStatusType.Importing.ToString(),
                 [FIELD_FILE_SIZE] = request.SizeBytes
             };
 

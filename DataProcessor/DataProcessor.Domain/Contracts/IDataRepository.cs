@@ -48,7 +48,6 @@ namespace DataProcessor.Domain.Contracts
     {
         public string Path { get; set; }
         public long SizeBytes { get; set; }
-        public FileStatusType Status { get; set; }
         public DateTime DateTime { get; set; }
     }
 
